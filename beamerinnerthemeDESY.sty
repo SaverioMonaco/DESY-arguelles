@@ -1,7 +1,7 @@
-% arguelles v2.4.2
-% author: Michele Piazzai
-% https://github.com/piazzai
-% license: MIT
+% DESY Beamer theme (fork of Arguelles v2.4.2)
+% original author: Michele Piazzai — https://github.com/piazzai
+% modifications: Saverio Monaco — https://github.com/SaverioMonaco/DESY-arguelles
+% license: MIT (inherited from upstream)
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{beamerinnerthemeDESY}[2024/09/11 DESY]
@@ -28,6 +28,16 @@
 
 % title page
 \defbeamertemplate*{title page}{DESY}{
+	\begin{tikzpicture}[overlay, remember picture]
+		% DESY logo on the bottom right
+		\node[
+			opacity=.8,
+			anchor=east,
+			xshift=0cm,
+			yshift=2.5cm
+		] at (current page.south east)
+		{\includegraphics[width=.35\paperwidth]{assets/DESY_white.pdf}};
+	\end{tikzpicture}
 	\vfill\begin{beamercolorbox}{inverted text}
 		{\usebeamerfont{title}\inserttitle}\par
 		{\usebeamerfont{subtitle}\insertsubtitle}\par\bigskip

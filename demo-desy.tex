@@ -1,13 +1,13 @@
-% arguelles v2.4.2
-% author: Michele Piazzai
-% https://github.com/piazzai
-% license: MIT
+% DESY Beamer theme (fork of Arguelles v2.4.2)
+% original author: Michele Piazzai — https://github.com/piazzai
+% modifications: Saverio Monaco — https://github.com/SaverioMonaco/DESY-arguelles
+% license: MIT (inherited from upstream)
 
 \documentclass[compress,12pt,aspectratio=169]{beamer}
 
-\usetheme{DESY}
+\usetheme[frameno,vert]{DESY}
 
-\title{Argüelles}
+\title{DESY-Argüelles}
 \subtitle{Simple, typographic beamer theme}
 \event{}
 \date{}
@@ -95,6 +95,8 @@
 \end{frame}
 
 \begin{frame}[standout]
+	\frametitle{A standout frame with title and subtitle}
+	\framesubtitle{Subtitle here}
 	\centering\large
 	A \textbf{\itshape\scshape standout} frame can be used to focus attention
 \end{frame}
@@ -106,8 +108,7 @@
 	it makes a nice thank-you slide!
 	\vfill
 	\scalebox{4}{\faGithub} \par\bigskip
-	\url{https://github.com/piazzai/arguelles} \\
-	\url{https://ctan.org/pkg/beamertheme-arguelles}
+	\url{https://github.com/SaverioMonaco/DESY-arguelles}
 \end{frame}
 
 \end{document}

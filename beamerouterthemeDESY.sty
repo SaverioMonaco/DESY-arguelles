@@ -1,7 +1,7 @@
-% arguelles v2.4.2
-% author: Michele Piazzai
-% https://github.com/piazzai
-% license: MIT
+% DESY Beamer theme (fork of Arguelles v2.4.2)
+% original author: Michele Piazzai — https://github.com/piazzai
+% modifications: Saverio Monaco — https://github.com/SaverioMonaco/DESY-arguelles
+% license: MIT (inherited from upstream)
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{beamerouterthemeDESY}[2024/09/11 DESY]
@@ -13,17 +13,45 @@
 
 % headline navigation
 \defbeamertemplate*{headline}{DESY}{
-	\begin{beamercolorbox}[ht=1.2em,dp=1.6em]{section in head/foot}
-		{\usebeamerfont{headline section}\insertnavigation{\paperwidth}}
-	\end{beamercolorbox}
+	% \begin{beamercolorbox}[ht=1.2em,dp=1.6em]{section in head/foot}
+	% 	{\usebeamerfont{headline section}\insertnavigation{\paperwidth}}
+	% \end{beamercolorbox}
 }
 
 % frame title
-\defbeamertemplate*{frametitle}{DESY}{
-	\begin{beamercolorbox}[wd=.95\paperwidth]{normal text}
-		{\usebeamerfont{frame title}\insertframetitle}\hfill
-		{\usebeamerfont{frame subtitle}\insertframesubtitle}
-	\end{beamercolorbox}
+\defbeamertemplate*{frametitle}{DESY}{%
+% decide assets/colors once
+\ifbool{DESY@standout}{%
+	\def\DESY@logo{assets/DESY_white.pdf}%
+	\def\DESY@titlecolor{white}%
+	\def\DESY@subtitlecolor{white}%
+}{%
+	\def\DESY@logo{assets/DESY.pdf}%
+	\def\DESY@titlecolor{desybluedark}%
+	\def\DESY@subtitlecolor{desyorangedark}%
+}%
+
+% logo
+\begin{tikzpicture}[overlay, remember picture]
+	\node (logo) at (-.15,-.2) {\includegraphics[width=1cm]{\DESY@logo}};
+\end{tikzpicture}
+~\\[-.7cm]
+\if@optVert
+\else
+	~\\[-.4cm]%
+\fi
+~\\[-.5cm]%
+~\hspace*{.5cm}%
+% frame title
+{\usebeamerfont{frame title}\textcolor{\DESY@titlecolor}{\insertframetitle}}%
+\if@optVert
+	\\[.2cm]%
+	\hspace*{.45cm}%
+\else
+	\hfill
+\fi
+% frame subtitle
+{\usebeamerfont{frame subtitle}\textcolor{\DESY@subtitlecolor}{\insertframesubtitle}}%
 }
 
 \mode<all>

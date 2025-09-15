@@ -1,20 +1,31 @@
-% arguelles v2.4.2
-% author: Michele Piazzai
-% https://github.com/piazzai
-% license: MIT
+% DESY Beamer theme (fork of Arguelles v2.4.2)
+% original author: Michele Piazzai — https://github.com/piazzai
+% modifications: Saverio Monaco — https://github.com/SaverioMonaco/DESY-arguelles
+% license: MIT (inherited from upstream)
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{beamercolorthemeDESY}[2025/09/11 DESY]
 
 \mode<presentation>
 
+% -----------------------------
+% DESY COLORS
+% -----------------------------
+\definecolor{desyorange}{RGB}{243, 142, 0} % #F28E00
+\definecolor{desyorangedark}{RGB}{230, 120, 0} % #E67800
+\definecolor{desyblue}{RGB}{0, 166, 235}   % #00A6EB
+\definecolor{desybluedark}{RGB}{0, 140, 220}   % #00A6EB
+\definecolor{desygray}{RGB}{119, 119, 119} % #777777
+
 % color scheme
-\setbeamercolor*{structure}{bg=oc-gray-0,fg=oc-gray-9}
+\setbeamercolor*{structure}{bg=oc-gray-0,fg=desybluedark}
 \setbeamercolor*{background canvas}{bg=structure.fg}
 \setbeamercolor*{section in head/foot}{bg=structure.fg,fg=structure.bg}
 \setbeamercolor*{normal text}{fg=oc-gray-8}
 \setbeamercolor*{inverted text}{fg=oc-gray-0}
 \setbeamercolor*{alerted text}{fg=oc-red-9}
+\setbeamercolor*{frame title}{fg=desybluedark}
+\setbeamercolor*{frame subtitle}{fg=desyorangedark}
 %
 \setbeamercolor*{section in toc}{bg=structure.fg,fg=structure.bg}
 \setbeamercolor*{section in toc shaded}{bg=structure.bg,fg=oc-gray-6}

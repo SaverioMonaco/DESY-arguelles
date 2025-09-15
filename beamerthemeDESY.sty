@@ -1,7 +1,7 @@
-% arguelles v2.4.2
-% author: Michele Piazzai
-% https://github.com/piazzai
-% license: MIT
+% DESY Beamer theme (fork of Arguelles v2.4.2)
+% original author: Michele Piazzai — https://github.com/piazzai
+% modifications: Saverio Monaco — https://github.com/SaverioMonaco/DESY-arguelles
+% license: MIT (inherited from upstream)
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{beamerthemeDESY}[2024/09/11 DESY]
@@ -14,6 +14,9 @@
 \newif\if@optFrameno
 \@optFramenofalse
 \DeclareOption{frameno}{\@optFramenotrue}
+\newif\if@optVert
+\@optVertfalse
+\DeclareOption{vert}{\@optVerttrue}
 \newif\if@optSplitnav
 \@optSplitnavfalse
 \DeclareOption{splitnav}{\@optSplitnavtrue}
@@ -32,6 +35,24 @@
 	\patchcmd{\slideentry}{\usebeamertemplate{mini frame in other subsection}}{\usebeamertemplate{mini frame in other section}}{}{}
 	\patchcmd{\slideentry}{\usebeamertemplate{mini frame in other subsection of current section}}{\usebeamertemplate{mini frame in other subsection}}{}{}
 \fi
+
+\newcommand{\Section}[1]{
+	\section{#1}
+	\begin{frame}[standout, plain]
+		\begin{tikzpicture}[overlay, remember picture]
+			\node[
+				opacity=0.4,
+				anchor=east,
+				xshift=0cm,
+				yshift=2.5cm
+			] at (current page.south east)
+			{\includegraphics[width=.35\paperwidth]{assets/DESY_white.pdf}};
+		\end{tikzpicture}
+		\begin{center}
+			{\LARGE\bfseries #1}
+		\end{center}
+	\end{frame}
+}
 
 % package dependencies
 \RequirePackage{ifluatex}
@@ -89,7 +110,6 @@
 
 \AtBeginEnvironment{proof}{\let\@addpunct\@gobble}
 
-\newcommand\Section[1]{\section{\texorpdfstring{\lowercase{#1}}{#1}}}
 \newcommand\End{\appendix}
 \renewcommand{\appendixname}{End}
 
